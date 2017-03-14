@@ -32,6 +32,14 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Tools
+
+gem 'rest-client', '~> 1.8'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.5'
+end
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
