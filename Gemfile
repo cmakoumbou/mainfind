@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 2.5'
 # Tools
 
 gem 'rest-client', '~> 1.8'
+gem 'annotate'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
