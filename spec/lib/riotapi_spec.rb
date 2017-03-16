@@ -10,7 +10,14 @@ describe 'Riot Api' do
       client = RiotApi.new
       response = client.get_challenger_league
       expect(response['tier']).to eq('CHALLENGER')
-      expect(response['entries'].size).to eq(200)
+    end
+  end
+
+  it "gets the master league" do
+    VCR.use_cassette('riotapi/get_master_league') do
+      client = RiotApi.new
+      response = client.get_master_league
+      expect(response['tier']).to eq('MASTER')
     end
   end
 end
