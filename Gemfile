@@ -37,6 +37,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'rest-client', '~> 1.8'
 gem 'annotate'
+gem 'webmock'
+gem 'vcr'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
