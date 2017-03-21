@@ -16,4 +16,9 @@ class RiotApi
     master_league_url = "#{BASE_URL}/api/lol/EUW/v2.5/league/master?type=RANKED_SOLO_5x5&api_key=#{RIOT_API_KEY}"
     get_response(master_league_url)
   end
+
+  def get_mastery_points(playerId)
+    mastery_points_url = "#{BASE_URL}/championmastery/location/EUW1/player/#{playerId}/champions?api_key=#{RIOT_API_KEY}"
+    get_response(mastery_points_url)
+  end
 end

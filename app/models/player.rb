@@ -6,7 +6,16 @@
 #  summonerid :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  name       :string
+#  tier       :string
 #
 
 class Player < ApplicationRecord
+  def self.store_challenger_players
+    client = RiotApi.new
+    response = client.get_challenger_league
+    response['entries'].each do |x|
+      Player.create(summonerid: x['playerOrTeamId'], name: x['playerOrTeamName'], tier: 'Challenger')
+    end
+  end
 end
