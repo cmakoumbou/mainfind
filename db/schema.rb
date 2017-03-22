@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170321113221) do
+ActiveRecord::Schema.define(version: 20170322135943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "champion_masteries", force: :cascade do |t|
+    t.string   "points"
+    t.string   "championid"
+    t.integer  "player_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["player_id"], name: "index_champion_masteries_on_player_id", using: :btree
+  end
 
   create_table "players", force: :cascade do |t|
     t.string   "summonerid"
@@ -23,4 +32,5 @@ ActiveRecord::Schema.define(version: 20170321113221) do
     t.string   "tier"
   end
 
+  add_foreign_key "champion_masteries", "players"
 end

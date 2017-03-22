@@ -11,6 +11,9 @@
 #
 
 class Player < ApplicationRecord
+  has_many :champion_mastery
+  validates_presence_of :summonerid, :name, :tier
+
   def self.store_challenger_players
     client = RiotApi.new
     response = client.get_challenger_league
