@@ -13,8 +13,7 @@
 require 'rails_helper'
 
 RSpec.describe ChampionMastery, type: :model do
-  let(:player) { Player.create(summonerid: "1", name: "Super", tier: "Challenger") }
-  let(:champion_mastery) { ChampionMastery.create(points: "12345", championid: "12", player_id: player.id) }
+  let(:champion_mastery) { build(:champion_mastery) }
 
   describe "Validations" do
     it "is valid with valid attributes" do

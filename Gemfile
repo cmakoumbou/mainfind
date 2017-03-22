@@ -39,6 +39,7 @@ gem 'rest-client', '~> 1.8'
 gem 'annotate'
 gem 'webmock'
 gem 'vcr'
+gem 'factory_girl_rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

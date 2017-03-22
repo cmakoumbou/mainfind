@@ -13,26 +13,26 @@
 require 'rails_helper'
 
 RSpec.describe Player, type: :model do
-  subject { described_class.new(summonerid: "1234", name: "Pyro", tier: "Challenger") }
+  let(:player) { build(:player) }
 
   describe "Validations" do
     it "is valid with valid attributes" do
-      expect(subject).to be_valid
+      expect(player).to be_valid
     end
 
     it "is not valid without a summonerid" do
-      subject.summonerid = nil
-      expect(subject).to_not be_valid
+      player.summonerid = nil
+      expect(player).to_not be_valid
     end
 
     it "is not valid without a name" do
-      subject.name = nil
-      expect(subject).to_not be_valid
+      player.name = nil
+      expect(player).to_not be_valid
     end
 
     it "is not valid without a tier" do
-      subject.tier = nil
-      expect(subject).to_not be_valid
+      player.tier = nil
+      expect(player).to_not be_valid
     end
   end
 
