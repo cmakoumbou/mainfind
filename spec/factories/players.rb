@@ -12,7 +12,7 @@
 
 FactoryGirl.define do
   factory :player do
-    summonerid "1234"
+    summonerid "39777270"
     name "Batman"
     tier "Challenger"
   end

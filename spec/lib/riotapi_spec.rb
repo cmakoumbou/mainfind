@@ -24,8 +24,8 @@ describe 'Riot Api' do
   it "gets mastery points" do
     VCR.use_cassette('riotapi/get_mastery_points') do
       client = RiotApi.new
-      playerId = "39777270"
-      response = client.get_mastery_points(playerId)
+      summonerid = "39777270"
+      response = client.get_mastery_points(summonerid)
       expect(response.first['playerId']).to eq(39777270)
     end
   end

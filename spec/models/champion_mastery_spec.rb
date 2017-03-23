@@ -13,6 +13,7 @@
 require 'rails_helper'
 
 RSpec.describe ChampionMastery, type: :model do
+  let(:player) { build(:player) }
   let(:champion_mastery) { build(:champion_mastery) }
 
   describe "Validations" do
@@ -33,6 +34,15 @@ RSpec.describe ChampionMastery, type: :model do
   describe "Associations" do
     it "belongs to a player" do
       expect(described_class.reflect_on_association(:player).macro).to eq(:belongs_to)
+    end
+  end
+
+  describe "Methods" do
+    it "store champion masteries" do
+      VCR.use_cassette('riotapi/get_mastery_points') do
+        champion_masteries = ChampionMastery.store_mastery_points(player)
+        expect(champion_masteries.count).to be > 1
+      end
     end
   end
 end

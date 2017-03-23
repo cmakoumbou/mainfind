@@ -17,8 +17,8 @@ class RiotApi
     get_response(master_league_url)
   end
 
-  def get_mastery_points(playerId)
-    mastery_points_url = "#{BASE_URL}/championmastery/location/EUW1/player/#{playerId}/champions?api_key=#{RIOT_API_KEY}"
+  def get_mastery_points(summonerid)
+    mastery_points_url = "#{BASE_URL}/championmastery/location/EUW1/player/#{summonerid}/champions?api_key=#{RIOT_API_KEY}"
     get_response(mastery_points_url)
   end
 end

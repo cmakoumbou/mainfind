@@ -13,4 +13,12 @@
 class ChampionMastery < ApplicationRecord
   belongs_to :player
   validates_presence_of :points, :championid
+
+  def self.store_mastery_points(player)
+    client = RiotApi.new
+    response = client.get_mastery_points(player.summonerid)
+    response.each do |x|
+      ChampionMastery.create(points: x['championPoints'], championid: x['championId'], player_id: player.id)
+    end
+  end
 end
