@@ -1,24 +1,15 @@
-# README
+# Mainfind
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Find your main champion using data from the Riot Games Developer API.
 
-Things you may want to cover:
+Development Features:
 
-* Ruby version
+* Rspec
 
-* System dependencies
+* Webmock
 
-* Configuration
+* VCR
 
-* Database creation
+* Factory Girl
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Riot Games Developer API
