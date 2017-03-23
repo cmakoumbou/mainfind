@@ -21,4 +21,10 @@ class ChampionMastery < ApplicationRecord
       ChampionMastery.create(points: x['championPoints'], championid: x['championId'], player_id: player.id)
     end
   end
+
+  def self.store_multiple_mastery_points
+    Player.all.each do |x|
+      ChampionMastery.store_mastery_points(x)
+    end
+  end
 end

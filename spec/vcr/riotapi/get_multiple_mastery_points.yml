@@ -1,0 +1,83 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://euw.api.pvp.net/championmastery/location/EUW1/player/31380896/champions?api_key=<RIOTAPIKEY>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json;charset=utf-8
+      Vary:
+      - Accept-Encoding
+      X-App-Rate-Limit-Count:
+      - 1:10,4:600
+      X-Method-Rate-Limit-Count:
+      - 1:10,4:600
+      X-Rate-Limit-Count:
+      - 1:10,4:600
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    http_version: 
+  recorded_at: Thu, 23 Mar 2017 16:49:11 GMT
+- request:
+    method: get
+    uri: https://euw.api.pvp.net/championmastery/location/EUW1/player/37247094/champions?api_key=<RIOTAPIKEY>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json;charset=utf-8
+      Vary:
+      - Accept-Encoding
+      X-App-Rate-Limit-Count:
+      - 2:10,5:600
+      X-Method-Rate-Limit-Count:
+      - 2:10,5:600
+      X-Rate-Limit-Count:
+      - 2:10,5:600
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    http_version: 
+  recorded_at: Thu, 23 Mar 2017 16:49:11 GMT
+recorded_with: VCR 3.0.3
