@@ -17,8 +17,8 @@ RSpec.describe ChampionMastery, type: :model do
   let(:player) { build(:player) }
   let(:champion_mastery) { build(:champion_mastery) }
 
-  player2 = FactoryGirl.create(:player, summonerid: "31380896")
-  player3 = FactoryGirl.create(:player, summonerid: "37247094")
+  data = [{:summonerid => "31380896"},{:summonerid=> "37247094"}]
+  players = data.map { |p| FactoryGirl.create(:player, p) }
 
   describe "Validations" do
     it "is valid with valid attributes" do
@@ -51,8 +51,9 @@ RSpec.describe ChampionMastery, type: :model do
 
     it "stores mastery points for multiple players" do
       VCR.use_cassette('riotapi/get_multiple_mastery_points') do
-        multiple_champion_masteries = ChampionMastery.store_multiple_mastery_points
-        expect(multiple_champion_masteries.second.champion_mastery.count).to be > 1
+        multiple_champion_masteries = ChampionMastery.store_multiple_mastery_points(players)
+        expect(multiple_champion_masteries[0][0]["playerId"]).to eq(31380896)
+        expect(multiple_champion_masteries[1][0]["playerId"]).to eq(37247094)
       end
     end
   end

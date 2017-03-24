@@ -21,4 +21,9 @@ class RiotApi
     mastery_points_url = "#{BASE_URL}/championmastery/location/EUW1/player/#{summonerid}/champions?api_key=#{RIOT_API_KEY}"
     get_response(mastery_points_url)
   end
+
+  def get_top_champion(summonerid)
+    top_champion_url = "#{BASE_URL}/championmastery/location/EUW1/player/#{summonerid}/topchampions?count=1&api_key=#{RIOT_API_KEY}"
+    get_response(top_champion_url)
+  end
 end

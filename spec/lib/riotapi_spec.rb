@@ -29,4 +29,13 @@ describe 'Riot Api' do
       expect(response.first['playerId']).to eq(39777270)
     end
   end
+
+  it "gets the top champion mastery entry for a player" do
+    VCR.use_cassette('riotapi/get_top_champion') do
+      client = RiotApi.new
+      summonerid = "39777270"
+      response = client.get_top_champion(summonerid)
+      expect(response.first['playerId']).to eq(39777270)
+    end
+  end
 end

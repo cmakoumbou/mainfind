@@ -22,8 +22,8 @@ class ChampionMastery < ApplicationRecord
     end
   end
 
-  def self.store_multiple_mastery_points
-    Player.all.each do |x|
+  def self.store_multiple_mastery_points(players)
+    players.map do |x|
       ChampionMastery.store_mastery_points(x)
     end
   end
