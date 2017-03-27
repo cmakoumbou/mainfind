@@ -2,12 +2,13 @@
 #
 # Table name: players
 #
-#  id         :integer          not null, primary key
-#  summonerid :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  name       :string
-#  tier       :string
+#  id            :integer          not null, primary key
+#  summonerid    :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  name          :string
+#  tier          :string
+#  topchampionid :string
 #
 
 require 'rails_helper'
@@ -47,6 +48,13 @@ RSpec.describe Player, type: :model do
       VCR.use_cassette('riotapi/get_challenger_league') do
         players = Player.store_challenger_players
         expect(players.count).to eq(200)
+      end
+    end
+
+    it "stores top champion for a player" do
+      VCR.use_cassette('riotapi/get_top_champion') do
+        player_top_champion = Player.store_top_champion(player)
+        expect(player_top_champion[0]["topchampionid"]).to eq("27")
       end
     end
   end

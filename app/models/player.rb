@@ -2,12 +2,13 @@
 #
 # Table name: players
 #
-#  id         :integer          not null, primary key
-#  summonerid :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  name       :string
-#  tier       :string
+#  id            :integer          not null, primary key
+#  summonerid    :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  name          :string
+#  tier          :string
+#  topchampionid :string
 #
 
 class Player < ApplicationRecord
@@ -20,5 +21,11 @@ class Player < ApplicationRecord
     response['entries'].each do |x|
       Player.create(summonerid: x['playerOrTeamId'], name: x['playerOrTeamName'], tier: 'Challenger')
     end
+  end
+
+  def self.store_top_champion(player)
+    client = RiotApi.new
+    response = client.get_top_champion(player.summonerid)
+    Player.update(topchampionid: response[0]["championId"])
   end
 end
