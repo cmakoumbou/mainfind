@@ -14,11 +14,16 @@ require 'rails_helper'
 require 'riotapi'
 
 RSpec.describe ChampionMastery, type: :model do
-  let(:player) { build(:player) }
-  let(:champion_mastery) { build(:champion_mastery) }
+
+  player = FactoryGirl.create(:player)
+  champion_mastery = FactoryGirl.create(:champion_mastery, player: player)
 
   data = [{:summonerid => "31380896"},{:summonerid=> "37247094"}]
   players = data.map { |p| FactoryGirl.create(:player, p) }
+
+  player_two = FactoryGirl.create(:player, topchampionid: "17")
+  champion_mastery_two = FactoryGirl.create(:champion_mastery, player: player_two, championid: "10")
+  excluded_champion_mastery = FactoryGirl.create(:champion_mastery, player: player_two, championid: "17")
 
   describe "Validations" do
     it "is valid with valid attributes" do
@@ -55,6 +60,11 @@ RSpec.describe ChampionMastery, type: :model do
         expect(multiple_champion_masteries[0][0]["playerId"]).to eq(31380896)
         expect(multiple_champion_masteries[1][0]["playerId"]).to eq(37247094)
       end
+    end
+
+    it "excludes the player's top champion from mastery points" do
+      without_top_champion = ChampionMastery.exclude_top_champion(player_two)
+      expect(without_top_champion.count).to be == 1
     end
   end
 end

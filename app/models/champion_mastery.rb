@@ -27,4 +27,8 @@ class ChampionMastery < ApplicationRecord
       ChampionMastery.store_mastery_points(x)
     end
   end
+
+  def self.exclude_top_champion(player)
+    ChampionMastery.where(player: player).where.not(championid: player.topchampionid)
+  end
 end
