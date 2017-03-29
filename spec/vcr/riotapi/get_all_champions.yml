@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://global.api.riotgames.com/api/lol/static-data/EUW/v1.2/champion?api_key=<RIOTAPIKEY>&dataById=true
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, DELETE, PUT
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Wed, 29 Mar 2017 15:44:16 GMT
+      Vary:
+      - Accept-Encoding, User-Agent
+      X-Newrelic-App-Data:
+      - PxQFWFFSDwQTVlhTBAcHX0YdFGQHBDcQUQxLA1tMXV1dORYzVBBGBxdCdhUSEVFRRRAEPhhQRw84HlpcDjpMEUQDTAtbFVBTRwRlTlQURD5LQAZPVD8XUFgFDBJeXllESAEYA05WTVIGWw1XCAwDHh5UFUMFBwVRAAQAUVdQAAcFVlUEFR1RBwhCU24=
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAHVaSXMbOQ/9K12+5DIzpX3JzYmXJI6djKU4E99oNa3mqJtUsbtty1Pz3z9wA0B5vktKQMkIl4eHB1D/nHSHvTx5f7KpRLNXRp/8dvIkbes+vT+Z/zH7YwieUnTi5P0/J4ul+1eVJ+8Xy99OdvIA3/kqjRbwHS0aycxOdbWzu0oWt6JUQnfFmXjWJ//+djIcDlIc+JgC3QnbtxQomTzQqbXmuTCPxa3srHroO7dMH3BIAYcp4I2AL9Q8JvPwsGvVCe3COuNM7ruqDVFHFHWEy1S7zli2zmTziNdiUykti0/SiroMwcYUbJyCreTfvdCKopGDh/updCftu7b4aUVXhXATCjdJ4S6UsewukslDXVqhy+Ksl7VqOxdpNJ6lSPARb7XfwJWxa002j/W9t+pRSRsWNKUFTVOYe7XdsvNPJg/ySb7sa9OqJ9kW5y97absQbk7h5rSquudr8hYPdiFksTJ2I61s/R0uEWlLBNq1qF9FJdgdMk+2P2v2lewSMu6MKsOJLejEFrhVWbKNeiNHRAtX6EKtKlGa57A6hO0SUbsWtWEHn0we60MtSgloCJHCcS3puDA1z6x4kiwW2hkgamOV6d3hy43PqHChSwT/ErF/q7J4yeThzl8UfHZ/j7BaIqquzPZaPFMAsN8FR3ZUpu+qdOinD4dwk4wz8CavxAH+isJFMwVbw99/6Uu1ES5D3Zrw4pZ4b6uKbyla2Y4O0i1m/axqta08Opd42kviwf6FQ/PlKMpXUR5cmK99ozTAvTuEe6NrI3g6pPxSHJ4eO7/e0EL/dx/A0DYiECExFl7aqct0jnZyZKcOy+pEH5KZuAqp6vbwyo46WhnL99rBfOtvn9ETstNKcWBHi9/VD11KUcKVbbfSauBqH4l4ZUqRnpTloYKZ5YjowIBdtV3igiEicoiIBLIQO0aZaPNYKzgt4PNI5ERMyEtrKRvDcjaaWYxn9dgVq42Ju0IkDhGJa+vuhRdT5uGxfhlbwt4uex1zlWU/4vGnsM9qs6Ng5OCxfugNXFkZKosD6L3oPZRGE0w4+IgZV3OaixaP9xEKvdA7aR2lfBRPok4FYkQJPMJ4n+RGWNVQSHJkp+eZzi0PdhGiUeaMMHWuKvGqWBqC/e5eHaei43ErgQpDJIyDCaO1YlBPJg9xJuyu+IiQGLG0w7yD7yguPtDOqp+rxrCtG/PSe5BiJIzzrRaPFCVaGdRBr0m7C9sZTaZ0bZgw57sdw2e0shjmUPysjDvoDrgGALFWjc9kpAJkgku4UxYtmRkKDJT0NuwImQCJAKgUCK28EB075ugsojfHlC1jAQ3HTYk8wkz+Ig4bFi6Z2a3JRwkU46vw2jTGqUkXEE8Mz+svpe8rwTYJjiJ6MlxKLVuQzrULeSYbASopLJFYYkTyRbUt3DeXaNzFA3/eONXXbbzYw+3iZn/YrekoSjJzXSVKVxZAJ3y3qvR3iYuiJcmHWugN1+8foiM/uY1UMWGQuZC47qAEqYYzMvNkFwmZ3RoN8l3so8rAQkoatgRyazugKpY8R948heyD0ttwrWfGND4NiLyQa256zdRjtDJelZ0qbuGsQiYhMxDBQDlpL4ztoNSx8gzOgrx5WvW6OxSfeh2xS0xBRHHaVpxugpWpWmvaDpqfTRWDYE6OxlQ8DrqECJanFPflxdE+ABtB03MFJxdog1iDMuqF5xOnUd9FNEGWCLe0JpAXcQ+m0rWx26yokSNFuxB1LXVxCpdY+zDUkSDi70FW8oYE7QxflTXa7KSM6KIspCRcOaywGoZ2rtZLCCab1COR4EfQnz/J+qDZisiRt25QuBqR2BnxPloyNnR5zokw2FkrUott7zrpoB7GVLXGCM4zlZ1zMlMY0B4Wu9xrEzvnMZN6CKY/e8V3lswUKRKd60fh8OLNE4CmiKA7JmLvjtXrd1V3BjilONePvmUL6yHhOCbleMhZE+03NXnlIkq1jZujQkGt7Wlvofk1emVqlnXRWQQvV6VO/bn03oYVTkhjT0hkrytQmfwSk53DU0AZAQVTSr++MZLUmLU0tqu4bCBHTsgg11pPez4S4oHg8LEyWzctwEjgeHcZPNn0Q0IdtMdN7hh3OSaiavqGMWgys4IIiXPdN43vbghbBK1b0TR8e2jncx4ozqWqa+PDICQIEacaND9DBNp5uTlAA2+kBgno4iA7jamTqMSGlflk5kfdAC6+yCQ/CFSEqTN73euSBTqzfxTJdUQsTZg1JZ09Ro4aE0dlI7VVPlG7dk18uq5VZ1MK0lSChhJXAuRFqTSHE3qONTEgs448NUaeGiNPfXYZwpaFdk53dZ3WFjrT0A0Sy0wQCvcHntPRSsFuVStToHUFzBVoZsZKA2W06KxhtQrtY3qA7POL8nlMEmFCGuFzXQvDWAttHuoKekS4ApBVDhRtXBnVmhle5I1oWLBo5aPHEhoeKH+BW0hzTEh03MrdSrAwYL8Ljjc3+KF3mjbWmhlVrRki4vSV67RoZeOOBoon8cEKCn2Q8VRMJ1RNPwPdMnQlM584SjgskPVV2uSSAi0JqX4qwYGaHBm/7KXwa7uTwH0gVMNd0lUOSL1onkTJzPt6YxuoYhe9PQRqJ2anZkdv96CIWSPNXTn31d2zcJLItfl2G2FGm0VmNgBFxsvRPEIr5DXoxwaEWhlbaMoiSiIoD012asHMblT7wRW0KmXxTYdVUVNGXRn8l6wRSGbehitZ+371TtTGhpkTNZzUb95BCeYjJ7Rz7OsDm4uePymv/iYI2wkbjQCX1pm0TY4sojVAP0nTDqc0cZgiLi41X1i08kFY6wpr8VXBDfswJElI2twLdlbByBvDjZVd8RManSC0JlRQJ1RRQYgzKRqtjE+Fa1jdcqAJll3SkcMp9ZdTTMZfou1ZDUpmPu4BrbX1c1vX+OIB0fmsngWvF8n8j1n2WmygH1MBBVPMnSkpEAF/dGDByJGjCnb4+OgwkDShj4honyLaP9Sqe93YLB0z3xHxQG+y6qRoiktTS98Y0mXSXV6Lel8pPoxgHpTPlZtCoHzWBv5b351PaXwwpazsXAJniYmebO9KK3+YWJemWOGmWOBuzKbrLe85mSdL9c4NTuvixiV8A4jxERErBJVrYXYiGzFHO0unOJJZw0Fq33hMMTenCypPWu46Ptplnqzr7DvXwb6pLFOsB9Mlsbd9EvrzHSdw5ym8K39wkA2wsT2ewMyoRZoNiZfqnXnlvFS/u/KO/5j4czk8nJGCmVHTDTXqILjsR8dRndHymSaOMyKU2YSSpQHtJHmyJEceS8qavfyMBjSmGOA+P1jRs6FqMo/mQxafti5Ay/0NkjtEpBnFAJnqS8VZIVqZ/lC2601rQgiaUAyoVCno2rLxMTp4v5UwHIYmHiEz5KkZ8tQ5yAN2WsnMxYKb5RR/9jLQHUGCEPHNjUF4opLjv55vPtZms3uGgu3j4UHN8JyAGeCDL0E0ee93xtv5K5f7IhYrwhfB64ObsmS3qI/rAwg+7apDJocIXwSvr1Ku+A2CXazeXCJwqS790nwcJA5StHfiwHkomTyIJx828yIdSjL0tm8eONjRzo5Ibiqh1StQ0LXUIm4O2WK2pNyBkm32krcnmS8vzXYvdQe677x5sDHqHK9yjle52gnrHlioFqLjqMsEnVqDJNLbXoQcmuMNzPEGPknVSNByvmdn7x2ZN3tQk09+Ev9ZQ7mOL5hzLDZzLDY3os1/5NC+aag/9ta9gb6h3jkWmzkVG1WKWvJag4781aHtVEzT9MI2pwEzAuZHeWDbjdZRllrVseZzjniZI16+m/3+QGGSmeJc+ZFf2t4n0TQxFIJljmC5tGIr2Hmhnf9k5QHwWNyavk2DWza5JVZUms9Ig5XxhjGtfxTTcd5GdD0kuv5L2mxSg3auurZ9W5y2G6nLWI6HRNVDoupVdXjKJoHkyOfm9ePvZ7D5sLIRmyqzsbKomiups/kkuIrky87MvRCQ+qYaMKQacFpZpjqilZOHlr+vhardU5B5CZGoXg4m7BqfZH6NwebRvvVdLcIvJAb0jjzA1LlQr0wNROuoPweMr617d0jPTwOaKg4wa+5ADz7IrOchTxax6p2kB/q5NeEtc4HVbYHV7TvccCW5qGKefFTWqTZMlNLT6IB6g8GcqbSsI0M7/8ELFExHZjETFwjWBWL1/BXUIJucon30y5kSOr7a/aIHGsUYDcG6YOXSlhKUZ8s5MXdmz2LWvx4BH8YMWCDIFoixX8ZmD99ok5SXexCiXs2vTF977logyBY0ZdyBnmNwjWb2NgMSmX7V4wMh0BbUD0it+c9M0P6/imwNqlaG14cF4m2BcLsEbc/iJZPrqGtfhrkq/vff/wH70JgL7ycAAA==
+    http_version: 
+  recorded_at: Wed, 29 Mar 2017 15:44:16 GMT
+recorded_with: VCR 3.0.3

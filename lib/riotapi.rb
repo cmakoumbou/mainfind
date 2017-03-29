@@ -1,5 +1,7 @@
 class RiotApi
   BASE_URL = "https://euw.api.pvp.net"
+  GLOBAL_URL = "https://global.api.riotgames.com"
+
   RIOT_API_KEY = ENV['RIOT_API_KEY']
 
   def get_response(url)
@@ -25,5 +27,10 @@ class RiotApi
   def get_top_champion(summonerid)
     top_champion_url = "#{BASE_URL}/championmastery/location/EUW1/player/#{summonerid}/topchampions?count=1&api_key=#{RIOT_API_KEY}"
     get_response(top_champion_url)
+  end
+
+  def get_all_champions
+    get_all_champions_url = "#{GLOBAL_URL}/api/lol/static-data/EUW/v1.2/champion?dataById=true&api_key=#{RIOT_API_KEY}"
+    get_response(get_all_champions_url)
   end
 end

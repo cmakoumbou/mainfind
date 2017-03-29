@@ -38,4 +38,12 @@ describe 'Riot Api' do
       expect(response.first['playerId']).to eq(39777270)
     end
   end
+
+  it "gets all the champions" do
+    VCR.use_cassette('riotapi/get_all_champions') do
+      client = RiotApi.new
+      response = client.get_all_champions
+      expect(response["type"]).to eq("champion")
+    end
+  end
 end
