@@ -30,4 +30,13 @@ RSpec.describe MainChampion, type: :model do
       expect(described_class.reflect_on_association(:champion_score).macro).to eq(:has_many)
     end
   end
+
+  describe "Methods" do
+    it "stores all champions" do
+      VCR.use_cassette('riotapi/get_all_champions') do
+        champions = MainChampion.store_all_champions
+        expect(champions.count).to be >= 134
+      end
+    end
+  end
 end

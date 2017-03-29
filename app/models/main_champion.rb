@@ -11,4 +11,12 @@
 class MainChampion < ApplicationRecord
   has_many :champion_score
   validates_presence_of :championid
+
+  def self.store_all_champions
+    client = RiotApi.new
+    response = client.get_all_champions
+    response["data"].each do |x|
+      MainChampion.create(championid: x[0])
+    end
+  end
 end
