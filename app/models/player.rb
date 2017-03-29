@@ -28,4 +28,10 @@ class Player < ApplicationRecord
     response = client.get_top_champion(player.summonerid)
     Player.update(topchampionid: response[0]["championId"])
   end
+
+  def self.store_multiple_top_champions(players)
+    players.map do |x|
+      Player.store_top_champion(x)
+    end
+  end
 end

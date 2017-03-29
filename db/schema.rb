@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170327154247) do
+ActiveRecord::Schema.define(version: 20170329130944) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,21 @@ ActiveRecord::Schema.define(version: 20170327154247) do
     t.index ["player_id"], name: "index_champion_masteries_on_player_id", using: :btree
   end
 
+  create_table "champion_scores", force: :cascade do |t|
+    t.string   "points"
+    t.string   "championid"
+    t.integer  "main_champion_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["main_champion_id"], name: "index_champion_scores_on_main_champion_id", using: :btree
+  end
+
+  create_table "main_champions", force: :cascade do |t|
+    t.string   "championid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "players", force: :cascade do |t|
     t.string   "summonerid"
     t.datetime "created_at",    null: false
@@ -34,4 +49,5 @@ ActiveRecord::Schema.define(version: 20170327154247) do
   end
 
   add_foreign_key "champion_masteries", "players"
+  add_foreign_key "champion_scores", "main_champions"
 end
