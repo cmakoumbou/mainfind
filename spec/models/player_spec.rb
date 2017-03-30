@@ -14,7 +14,7 @@
 require 'rails_helper'
 
 RSpec.describe Player, type: :model do
-  let(:player) { build(:player) }
+  let(:player) { create(:player) }
 
   data = [{:summonerid => "31380896"},{:summonerid=> "37247094"}]
   multiple_players = data.map { |p| FactoryGirl.create(:player, p) }
@@ -57,15 +57,15 @@ RSpec.describe Player, type: :model do
     it "stores top champion for a player" do
       VCR.use_cassette('riotapi/get_top_champion') do
         player_top_champion = Player.store_top_champion(player)
-        expect(player_top_champion[0]["topchampionid"]).to eq("27")
+        expect(player_top_champion.topchampionid).to eq("27")
       end
     end
 
     it "stores top champions for multiple players" do
       VCR.use_cassette('riotapi/get_multiple_top_champions') do
         multiple_top_champions = Player.store_multiple_top_champions(multiple_players)
-        expect(multiple_top_champions[0][0]["topchampionid"]).to eq("222")
-        expect(multiple_top_champions[1][0]["topchampionid"]).to eq("64")
+        expect(multiple_top_champions[0]["topchampionid"]).to eq("222")
+        expect(multiple_top_champions[1]["topchampionid"]).to eq("64")
       end
     end
   end

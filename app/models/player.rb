@@ -26,7 +26,7 @@ class Player < ApplicationRecord
   def self.store_top_champion(player)
     client = RiotApi.new
     response = client.get_top_champion(player.summonerid)
-    Player.update(topchampionid: response[0]["championId"])
+    Player.update(player.id, topchampionid: response[0]["championId"])
   end
 
   def self.store_multiple_top_champions(players)
