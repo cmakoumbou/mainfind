@@ -25,6 +25,17 @@ RSpec.describe ChampionMastery, type: :model do
   champion_mastery_two = FactoryGirl.create(:champion_mastery, player: player_two, championid: "10")
   excluded_champion_mastery = FactoryGirl.create(:champion_mastery, player: player_two, championid: "17")
 
+  player_a = FactoryGirl.create(:player, topchampionid: "40")
+  player_b = FactoryGirl.create(:player, topchampionid: "40")
+
+  mastery_a = FactoryGirl.create(:champion_mastery, player: player_a, championid: "40")
+  mastery_a2 = FactoryGirl.create(:champion_mastery, player: player_a, championid: "41")
+
+  mastery_b = FactoryGirl.create(:champion_mastery, player: player_b, championid: "40")
+  mastery_b2 = FactoryGirl.create(:champion_mastery, player: player_b, championid: "41")
+
+  multi_players = [player_a, player_b]
+
   describe "Validations" do
     it "is valid with valid attributes" do
       expect(champion_mastery).to be_valid
@@ -62,9 +73,14 @@ RSpec.describe ChampionMastery, type: :model do
       end
     end
 
-    it "excludes the player's top champion from mastery points" do
+    it "excludes the player's top champion" do
       without_top_champion = ChampionMastery.exclude_top_champion(player_two)
       expect(without_top_champion.count).to be == 1
+    end
+
+    it "excludes multiple players top champion" do
+      without_top_champions = ChampionMastery.exclude_multiple_top_champions(multi_players)
+      expect(without_top_champions.count).to be == 2
     end
   end
 end

@@ -16,6 +16,13 @@ RSpec.describe ChampionScore, type: :model do
 
   champion_score = FactoryGirl.create(:champion_score)
 
+  main = FactoryGirl.create(:main_champion)
+
+  data = [{:championid => "20"},{:championid=> "30"}]
+  masteries = data.map { |p| FactoryGirl.create(:champion_mastery, p) }
+
+  let!(:masterie) { FactoryGirl.create_list(:champion_mastery, 2) }
+
   describe "Validations" do
     it "is valid with valid attributes" do
       expect(champion_score).to be_valid
@@ -34,6 +41,13 @@ RSpec.describe ChampionScore, type: :model do
   describe "Associations" do
     it "belongs to a main_champion" do
       expect(described_class.reflect_on_association(:main_champion).macro).to eq(:belongs_to)
+    end
+  end
+
+  describe "Methods" do
+    it "stores champion score" do
+      championscore = ChampionScore.store_champion_scores(masteries, main)
+      expect(championscore.count).to be == 2
     end
   end
 end

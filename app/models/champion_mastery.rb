@@ -31,4 +31,10 @@ class ChampionMastery < ApplicationRecord
   def self.exclude_top_champion(player)
     ChampionMastery.where(player: player).where.not(championid: player.topchampionid)
   end
+
+  def self.exclude_multiple_top_champions(players)
+    players.map do |x|
+      ChampionMastery.exclude_top_champion(x)
+    end
+  end
 end
