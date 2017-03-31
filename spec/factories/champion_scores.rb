@@ -13,7 +13,7 @@
 FactoryGirl.define do
   factory :champion_score do
     points 100
-    championid "12"
+    championid "1"
     main_champion
   end
 end

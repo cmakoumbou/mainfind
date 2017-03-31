@@ -40,6 +40,7 @@ gem 'annotate'
 gem 'webmock'
 gem 'vcr'
 gem 'factory_girl_rails'
+gem 'database_cleaner'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -63,6 +63,8 @@ RSpec.describe Player, type: :model do
 
     it "stores top champions for multiple players" do
       VCR.use_cassette('riotapi/get_multiple_top_champions') do
+        data = [{:summonerid => "31380896"},{:summonerid=> "37247094"}]
+        multiple_players = data.map { |p| FactoryGirl.create(:player, p) }
         multiple_top_champions = Player.store_multiple_top_champions(multiple_players)
         expect(multiple_top_champions[0]["topchampionid"]).to eq("222")
         expect(multiple_top_champions[1]["topchampionid"]).to eq("64")

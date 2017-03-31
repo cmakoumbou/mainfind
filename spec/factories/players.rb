@@ -16,5 +16,6 @@ FactoryGirl.define do
     summonerid "39777270"
     name "Batman"
     tier "Challenger"
+    topchampionid "1"
   end
 end

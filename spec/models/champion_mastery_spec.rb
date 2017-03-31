@@ -21,10 +21,6 @@ RSpec.describe ChampionMastery, type: :model do
   data = [{:summonerid => "31380896"},{:summonerid=> "37247094"}]
   players = data.map { |p| FactoryGirl.create(:player, p) }
 
-  player_two = FactoryGirl.create(:player, topchampionid: "17")
-  champion_mastery_two = FactoryGirl.create(:champion_mastery, player: player_two, championid: "10")
-  excluded_champion_mastery = FactoryGirl.create(:champion_mastery, player: player_two, championid: "17")
-
   player_a = FactoryGirl.create(:player, topchampionid: "40")
   player_b = FactoryGirl.create(:player, topchampionid: "40")
 
@@ -74,13 +70,11 @@ RSpec.describe ChampionMastery, type: :model do
     end
 
     it "excludes the player's top champion" do
+      player_two = FactoryGirl.create(:player, topchampionid: "17")
+      a = FactoryGirl.create(:champion_mastery, player: player_two, championid: "10")
+      b = FactoryGirl.create(:champion_mastery, player: player_two, championid: "17")
       without_top_champion = ChampionMastery.exclude_top_champion(player_two)
       expect(without_top_champion.count).to be == 1
-    end
-
-    it "excludes multiple players top champion" do
-      without_top_champions = ChampionMastery.exclude_multiple_top_champions(multi_players)
-      expect(without_top_champions.count).to be == 2
     end
   end
 end
