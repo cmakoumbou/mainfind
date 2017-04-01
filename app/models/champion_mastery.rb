@@ -17,6 +17,9 @@ class ChampionMastery < ApplicationRecord
   def self.store_mastery_points(player)
     client = RiotApi.new
     response = client.get_mastery_points(player.summonerid)
+    if !Rails.env.test?
+      sleep 1.5
+    end
     response.each do |x|
       ChampionMastery.create(points: x['championPoints'], championid: x['championId'], player_id: player.id)
     end

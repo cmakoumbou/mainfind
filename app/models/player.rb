@@ -26,6 +26,9 @@ class Player < ApplicationRecord
   def self.store_top_champion(player)
     client = RiotApi.new
     response = client.get_top_champion(player.summonerid)
+    if !Rails.env.test?
+      sleep 1.5
+    end
     Player.update(player.id, topchampionid: response[0]["championId"])
   end
 
