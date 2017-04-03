@@ -9,7 +9,7 @@
 #
 
 class MainChampion < ApplicationRecord
-  has_many :champion_score
+  has_many :champion_score, dependent: :destroy
   validates_presence_of :championid
 
   def self.store_all_champions

@@ -12,7 +12,7 @@
 #
 
 class Player < ApplicationRecord
-  has_many :champion_mastery
+  has_many :champion_mastery, dependent: :destroy
   validates_presence_of :summonerid, :name, :tier
 
   def self.store_challenger_players
