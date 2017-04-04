@@ -61,6 +61,15 @@ RSpec.describe ChampionMastery, type: :model do
       end
     end
 
+    it "updates mastery points" do
+      VCR.use_cassette('riotapi/update_mastery_points') do
+        player = FactoryGirl.create(:player, summonerid: "39777270")
+        ChampionMastery.store_mastery_points(player)
+        ChampionMastery.store_mastery_points(player)
+        expect(ChampionMastery.count).to eq(134)
+      end
+    end
+
     it "stores mastery points for multiple players" do
       VCR.use_cassette('riotapi/get_multiple_mastery_points') do
         multiple_champion_masteries = ChampionMastery.store_multiple_mastery_points(players)

@@ -19,7 +19,12 @@ class Player < ApplicationRecord
     client = RiotApi.new
     response = client.get_challenger_league
     response['entries'].each do |x|
-      Player.create(summonerid: x['playerOrTeamId'], name: x['playerOrTeamName'], tier: 'Challenger')
+      player = Player.find_by(summonerid: x['playerOrTeamId'])
+      if player.blank?
+        Player.create(summonerid: x['playerOrTeamId'], name: x['playerOrTeamName'], tier: 'Challenger')
+      else
+        Player.update(player.id, name: x['playerOrTeamName'], tier: 'Challenger')
+      end
     end
   end
 

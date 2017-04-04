@@ -54,6 +54,14 @@ RSpec.describe Player, type: :model do
       end
     end
 
+    it "updates challenger players" do
+      VCR.use_cassette('riotapi/update_challenger_league') do
+        Player.store_challenger_players
+        Player.store_challenger_players
+        expect(Player.count).to eq(200)
+      end
+    end
+
     it "stores top champion for a player" do
       VCR.use_cassette('riotapi/get_top_champion') do
         player_top_champion = Player.store_top_champion(player)

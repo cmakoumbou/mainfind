@@ -21,7 +21,12 @@ class ChampionMastery < ApplicationRecord
       sleep 1.5
     end
     response.each do |x|
-      ChampionMastery.create(points: x['championPoints'], championid: x['championId'], player_id: player.id)
+      mastery = ChampionMastery.find_by(championid: x['championId'], player_id: player.id)
+      if mastery.blank?
+        ChampionMastery.create(points: x['championPoints'], championid: x['championId'], player_id: player.id)
+      else
+        ChampionMastery.update(mastery.id, points: x['championPoints'])
+      end
     end
   end
 
